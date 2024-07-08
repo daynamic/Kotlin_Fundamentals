@@ -46,11 +46,35 @@ fun main(){
      * % (a%b)
      * */
 
-    val a = 23
-    val b = 12
 
-    print(a%b)
-
+    /**
+     * Loops and Branching
+     *
+     * if(amount >= 1000){
+     *         print("Wealthy")
+     *     }
+     *     else{
+     *         print("Mot Wealthy")
+     *     }
+     *
+     * when (amount){
+     *        in 1..100 -> print(" NOt Wealthy")
+     *         !in 10..90 -> print("Wealthy")
+     *         else -> print("not reachable")
+     *     }
+     *
+     * // Simple for loop
+     *     for (i in 1..3){
+     *         println(i)
+     *     }
+     *
+     * // for loop divible by 3
+     *     for (i in 1..1000){
+     *         if(i%3 == 0) println("$i is mutiple of 3") else println ("---")
+     *     }
+     *
+     *
+     * */
 
 
 
