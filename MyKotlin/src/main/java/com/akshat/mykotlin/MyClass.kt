@@ -36,11 +36,23 @@ fun main(){
      *    val eFloat = 2.7182818284f
      * */
 
-    val myShort : Short
-    myShort = 12799
+
+    /**
+     * Kotlin Operators
+     * + (a+b)
+     * - (a-b)
+     * * (a*b)
+     * / (a/b)
+     * % (a%b)
+     * */
+
+    val a = 23
+    val b = 12
+
+    print(a%b)
 
 
 
 
-    print("Hello my name is $myShort")
+ //   print("Hello my name is $myShort")
 }
