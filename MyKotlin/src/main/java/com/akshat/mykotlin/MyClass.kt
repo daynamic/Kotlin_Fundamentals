@@ -74,7 +74,21 @@ fun main(){
      *     }
      *
      *
+     *     for (i in 1..55){
+     *                if(i%3 == 0 && i%5 == 0)
+     *                    println("$i is mutiple of 3 and 5")
+     *                else if (i%5 == 0)
+     *                    println ("$i is multiple of 5 only")
+     *                 else if (i%3 == 0)
+     *                     println("$i is muliple of 3 only")
+     *                 else
+     *                     println("---")
+     *     }
+     *
+     *
      * */
+
+
 
 
 
