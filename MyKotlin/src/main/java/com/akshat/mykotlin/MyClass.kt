@@ -17,9 +17,30 @@ fun main(){
      * name = "James"
      * */
 
+    /**
+     * * Basic Types in Kotlin:
+     * (Whole Numbers)
+     *  - Int
+     *  - Byte
+     *  val myByte : Byte
+     *  myByte = 127
+     *  - Short
+     *  val myShort : Short
+     *  myShort = 12799
+     *  Floating Points Types:
+     *   (Decimal Numbers):
+     *    - Double
+     *    - Float
+     *    Note: for precision, use Double.
+     *    val e = 2.7182818284
+     *    val eFloat = 2.7182818284f
+     * */
+
+    val myShort : Short
+    myShort = 12799
 
 
 
-    
-    print("Hello my name is $name I 'm $age old")
+
+    print("Hello my name is $myShort")
 }
