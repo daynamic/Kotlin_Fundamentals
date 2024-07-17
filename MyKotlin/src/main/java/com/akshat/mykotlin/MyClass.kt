@@ -186,25 +186,53 @@ fun main(){
      *
      * */
 
+    Repository.startFetch()
+    getResult(result = Repository.getCurrentState())
+    Repository.finishFetch()
+    getResult(result = Repository.getCurrentState())
+    Repository.error()
+    getResult(result = Repository.getCurrentState())
 
-
-
-    //   print("Hello my name is $myShort")
 }
 
-
-fun createDataClass() {
-    val person = Person(name = "Joe", lastName = "Ball", age = 23)
-    val aroni =  Person(name = "Ruti",
-        lastName = "Machava",
-        age = 54)
-    val ruti = Person(name = "Ruti",
-        lastName = "Machava",
-        age = 54)
-    val listOfPeople = listOf(person, aroni, ruti)
-    val listOfNumber = listOf(23,54,67,89)
-    listOfPeople.forEach { item ->
-        println(item.age)
+fun getResult(result: Result){
+    return when (result){
+        Result.SUCCESS -> println("Success")
+        Result.FAILURE -> println("Failure")
+        Result.ERROR -> println("Error")
+        Result.IDLE -> println("Idle")
+        Result.LOADING -> println("Loading")
     }
 }
-data class Person(val name: String, val lastName: String, val age: Int)
+
+object Repository {
+    private var loadState: Result = Result.IDLE
+    private var dataFetched: String? = null
+    fun startFetch(){
+        loadState = Result.LOADING
+        dataFetched = "data"
+    }
+
+    fun finishFetch(){
+        loadState = Result.SUCCESS
+        dataFetched = null
+    }
+
+    fun error(){
+        loadState = Result.ERROR
+        dataFetched = null
+    }
+
+    fun getCurrentState(): Result {
+       return loadState
+    }
+}
+
+enum class Result {
+    SUCCESS,
+    FAILURE,
+    ERROR,
+    IDLE,
+    LOADING
+}
+
