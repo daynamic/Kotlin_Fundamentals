@@ -179,7 +179,12 @@ fun main(){
      * }
      * data class Person(val name: String, val lastName: String, val age: Int)
      *
-     *
+     *  /*enum class Result {
+     *     SUCCESS,
+     *     ERROR,
+     *     IDLE,
+     *     LOADING
+     * }*/
      *
      *
      *
@@ -197,29 +202,43 @@ fun main(){
 
 fun getResult(result: Result){
     return when (result){
-        Result.SUCCESS -> println("Success")
-        Result.FAILURE -> println("Failure")
-        Result.ERROR -> println("Error")
-        Result.IDLE -> println("Idle")
-        Result.LOADING -> println("Loading")
+        is Error -> {
+            println(result.exception.toString())
+        }
+
+        is Success -> {
+            println(result.dataFeteched?: "Start again")
+        }
+
+        is Loading -> {
+            println("Loadinh")
+        }
+
+        is NotLoading -> {
+            println("Idle")
+        }
+
+        else -> {
+            println("Not Avaialble")
+        }
     }
 }
 
 object Repository {
-    private var loadState: Result = Result.IDLE
+    private var loadState: Result = NotLoading
     private var dataFetched: String? = null
     fun startFetch(){
-        loadState = Result.LOADING
+        loadState = Loading
         dataFetched = "data"
     }
 
     fun finishFetch(){
-        loadState = Result.SUCCESS
+        loadState = Success(dataFetched)
         dataFetched = null
     }
 
     fun error(){
-        loadState = Result.ERROR
+        loadState = Error(exception = Exception("Exception"))
         dataFetched = null
     }
 
@@ -228,11 +247,18 @@ object Repository {
     }
 }
 
-enum class Result {
-    SUCCESS,
-    FAILURE,
-    ERROR,
-    IDLE,
-    LOADING
-}
+abstract class Result
+
+data class Success(val dataFeteched: String?): Result()
+
+data class Error(val exception: Exception): Result()
+
+object NotLoading: Result()
+
+object Loading: Result()
+
+
+
+
+
 
