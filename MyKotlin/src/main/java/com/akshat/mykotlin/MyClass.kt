@@ -86,6 +86,29 @@ fun main(){
      *     }
      *
      *
+     *
+     *
+     * //Collections - Introduction
+     *immutable
+    * val myListOfNames = listOf("Aks", "Aks1", "Aks2", "Aks3")
+    *
+    *     // println(myListOfNames)
+    *
+    *     /*for (item in myListOfNames){
+     *         println("Names: $item")
+     *     }*/
+    *     /*myListOfNames.forEach{
+     *         println(it)
+     *     }*/
+    *
+    *     //Mutable
+    *     /*val myMutableList = mutableListOf(12, 4, 34, 124)
+     *     myMutableList.add(213)
+     *     myMutableList.removeAt(0)
+     *     println(myMutableList)*/
+     *
+     *
+     *
      * */
 
 
