@@ -89,7 +89,8 @@ fun main(){
      *
      *
      * //Collections - Introduction
-     *immutable
+     * LISTS
+     * immutable
     * val myListOfNames = listOf("Aks", "Aks1", "Aks2", "Aks3")
     *
     *     // println(myListOfNames)
@@ -108,8 +109,22 @@ fun main(){
      *     println(myMutableList)*/
      *
      *
+     * SET
+     *   // Immutable Set
+     *     val mySet = setOf("US", "Canada", "Mexico")
+     *     println(mySet)
+     *
+     *     // Mutable Set
+     *     val myMutableSet = mutableSetOf(1,2,3,4,5)
+     *     myMutableSet.add(3)
+     *     println(myMutableSet)
+     *
+     *
+     *
+     *
      *
      * */
+
 
 
 
