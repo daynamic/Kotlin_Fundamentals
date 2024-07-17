@@ -120,6 +120,20 @@ fun main(){
      *     println(myMutableSet)
      *
      *
+     * MAP
+     * //Immutable Map
+     *     val secretMap = mapOf("Up" to 1, "Down" to 2, "Right" to 3, "Down" to 4)
+     *    // println(secretMap)
+     *    // println(secretMap.keys)
+     *     println(secretMap.values)
+     *
+     *
+     *     val myMutableSecretMap = mutableMapOf(
+     *         "1" to 1, "2" to 2, "3" to 3, "4" to 4
+     *     )
+     *     myMutableSecretMap["4"]=4
+     *     println(myMutableSecretMap.values)
+     *
      *
      *
      *
@@ -130,5 +144,6 @@ fun main(){
 
 
 
- //   print("Hello my name is $myShort")
+
+    //   print("Hello my name is $myShort")
 }
