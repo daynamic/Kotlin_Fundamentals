@@ -141,6 +141,14 @@ fun main(){
 
 
 
+    val myList = mutableListOf<String>()
+    myList.add("hey")
+    for (i in 1..10){
+        myList.add(i, "Hey $i")
+    }
+
+    println(myList)
+
 
 
 
