@@ -135,23 +135,76 @@ fun main(){
      *     println(myMutableSecretMap.values)
      *
      *
+     *     val myList = mutableListOf<String>()
+     *     myList.add("hey")
+     *     for (i in 1..10){
+     *         myList.add(i, "Hey $i")
+     *     }
+     *
+     *     println(myList)
+     *
+     *
+     *
+     *  val listOfItem = listOf("Akshat", "Chandu", "Trish")
+     *     val listOfNumber = listOf(23,54,67,89)
+     *     val finder = Finder( list=listOfNumber )
+     *     finder.findItem(element = 23){
+     *         println("Found $it")
+     *     }
+     *  //Generics
+     * class Finder<T>(private val list: List<T>){
+     *     fun findItem(element: T, foundItem: (element: T?) -> Unit) {
+     *         val itemFoundList = list.filter {
+     *             it == element
+     *         }
+     *
+     *         if(itemFoundList.isNullOrEmpty()) foundItem(null) else
+     *             foundItem(itemFoundList.first())
+     *     }
+     * }
+     *
+     * fun createDataClass() {
+     *     val person = Person(name = "Joe", lastName = "Ball", age = 23)
+     *     val aroni =  Person(name = "Ruti",
+     *         lastName = "Machava",
+     *         age = 54)
+     *     val ruti = Person(name = "Ruti",
+     *         lastName = "Machava",
+     *         age = 54)
+     *     val listOfPeople = listOf(person, aroni, ruti)
+     *     val listOfNumber = listOf(23,54,67,89)
+     *     listOfPeople.forEach { item ->
+     *         println(item.age)
+     *     }
+     * }
+     * data class Person(val name: String, val lastName: String, val age: Int)
+     *
+     *
+     *
+     *
      *
      *
      * */
 
 
 
-    val myList = mutableListOf<String>()
-    myList.add("hey")
-    for (i in 1..10){
-        myList.add(i, "Hey $i")
-    }
-
-    println(myList)
-
-
-
-
 
     //   print("Hello my name is $myShort")
 }
+
+
+fun createDataClass() {
+    val person = Person(name = "Joe", lastName = "Ball", age = 23)
+    val aroni =  Person(name = "Ruti",
+        lastName = "Machava",
+        age = 54)
+    val ruti = Person(name = "Ruti",
+        lastName = "Machava",
+        age = 54)
+    val listOfPeople = listOf(person, aroni, ruti)
+    val listOfNumber = listOf(23,54,67,89)
+    listOfPeople.forEach { item ->
+        println(item.age)
+    }
+}
+data class Person(val name: String, val lastName: String, val age: Int)
