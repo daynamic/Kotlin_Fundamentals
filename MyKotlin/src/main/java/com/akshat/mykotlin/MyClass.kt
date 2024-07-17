@@ -1,5 +1,7 @@
 package com.akshat.mykotlin
 
+import java.io.IOException
+
 fun main(){
 
 
@@ -197,7 +199,10 @@ fun main(){
     getResult(result = Repository.getCurrentState())
     Repository.error()
     getResult(result = Repository.getCurrentState())
-
+    Repository.customFailure()
+    getResult(result = Repository.getCurrentState())
+    Repository.anotherCustomFailure()
+    getResult(result = Repository.getCurrentState())
 }
 
 fun getResult(result: Result){
@@ -218,8 +223,11 @@ fun getResult(result: Result){
             println("Idle")
         }
 
-        else -> {
-            println("Not Avaialble")
+        is Failure.AnotherCustomFailure -> {
+            println(result.anothercustomFailure.toString())
+        }
+        is Failure.CustomFailure -> {
+            println(result.customFailure.toString())
         }
     }
 }
@@ -245,9 +253,17 @@ object Repository {
     fun getCurrentState(): Result {
        return loadState
     }
+
+    fun customFailure()  {
+        loadState = Failure.CustomFailure(customFailure = IOException("Custom failure"))
+    }
+
+    fun anotherCustomFailure()  {
+        loadState = Failure.AnotherCustomFailure(anothercustomFailure = NullPointerException("r failure"))
+    }
 }
 
-abstract class Result
+sealed class Result
 
 data class Success(val dataFeteched: String?): Result()
 
@@ -256,6 +272,11 @@ data class Error(val exception: Exception): Result()
 object NotLoading: Result()
 
 object Loading: Result()
+
+sealed class Failure: Result(){
+    data class  CustomFailure(val customFailure: IOException):Failure()
+    data class AnotherCustomFailure(val anothercustomFailure: NullPointerException):Failure()
+}
 
 
 
